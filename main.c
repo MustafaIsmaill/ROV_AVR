@@ -10,8 +10,8 @@
 #include "initialization.h"
 
 volatile uint8_t PWMcount = 0;
-volatile const uint16_t compare1[6]={0,6666,13332,19998,26664,33330}; //base value for each thruster
-volatile uint16_t compare2[6]={2880,2880,2880,2880,2880,2880}; //pwm received from i2c
+volatile const uint16_t compare1[6]={684,4017,7350,10683,14016,17349}; //base value for each thruster
+volatile uint16_t compare2[6]={1440,1440,1440,1440,1440,1440}; //pwm received from i2c
 
 
 volatile uint8_t TWIcount=0;
@@ -21,8 +21,8 @@ volatile uint16_t twoBytes;
 int main(void)
 {
 	i2c_init(); //i2c
-	OCR1A = compare1[PWMcount];
 	timer1_init(); //timer1
+	OCR1A = compare1[PWMcount];
 	ports_init(); //ports
  
 

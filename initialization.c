@@ -14,7 +14,7 @@ void i2c_init(void){
 }
 
 void timer1_init(void){
-	TCCR1A |= (1<<WGM11)|(1<<COM1A1)|(1<<COM1B1); //fast pwm, ICR as top, non-inverting mode
+	//TCCR1A |= (1<<WGM11); //fast pwm, ICR as top, normal port operation
 	TCCR1B |= (1<<WGM12) | (1<<WGM13) | (1<<CS11); //pre-scale 8
 	TIMSK1 |= (1<<TOIE1) | (1<<OCIE1A) | (1<<OCIE1B); //interrupts enable
 	ICR1 = 39999; //top value
